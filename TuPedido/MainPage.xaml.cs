@@ -25,21 +25,35 @@ namespace TuPedido
         public MainPage()
         {
             this.InitializeComponent();
-        }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SignUp), null);
-        }
+            MyFrame.Navigate(typeof(Main));
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Maps), null);
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Search), null);
+            if (MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+            }
         }
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!this.SplitView.IsPaneOpen)
+            {
+                this.SplitView.IsPaneOpen = true;
+            }
+            else
+            {
+                this.SplitView.IsPaneOpen = false;
+            }
+        }
+        private void MapsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Maps));
+        }
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Search));
+        }
+       
     }
 }

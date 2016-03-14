@@ -8,36 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="#f2f2f2" Padding="10">
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4.5*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="4.5*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="4*"/>
-        </Grid.RowDefinitions>
-        <Frame x:Name="paginaprincipal"/>
-        <Image Grid.ColumnSpan="3" Source="Assets/Logo1.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <StackPanel Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Center">
-            <TextBox PlaceholderText="User" Height="10" Margin="0,0,0,10"/>
-            <PasswordBox PlaceholderText="Password" Height="10"/>
-        </StackPanel>
-        <Button Grid.Row="2" HorizontalAlignment="Stretch" Content="Login" Foreground="White"/>
-        <Button Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" Content="Sign Up" Foreground="White" Click="Button_Click"/>
-        <StackPanel Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Margin="30,0,30,10" Background="Transparent" Height="70" Width="280">
-                <Image Source="Assets/facebook.png"/>
-            </Button>
-            <Button Margin="30,0,30,0" Background="Transparent" Height="70" Width="280">
-                <Image Source="Assets/gmail.png"/>
-            </Button>
-            <Button Content="GotoMaps" Margin="0,10,0,10" HorizontalAlignment="Center" Width="100" Click="Button_Click_1"/>
-            <Button Content="Search" HorizontalAlignment="Center" Width="100" Click="Button_Click_2"/>
-        </StackPanel> 
-        
+         <SplitView Grid.RowSpan="4" x:Name="SplitView" OpenPaneLength="200" CompactPaneLength="48" DisplayMode="Overlay" IsPaneOpen="False" PaneBackground="#f2f2f2">
+            <SplitView.Pane>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                <StackPanel x:Name="SplitViewPanePanel">
+                        <Button x:Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE76B;" Height="50" Background="Transparent" Click="BackButton_Click" Margin="0,40,0,0" HorizontalAlignment="Stretch"/>
+                        <Button x:Name="SearchButton" FontFamily="Segoe MDL2 Assets" Content="&#xE094;" Height="50" Background="Transparent" Click="SearchButton_Click" HorizontalAlignment="Stretch"/>
+                        <Button x:Name="MapsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE1C4;" Height="50" Background="Transparent" Click="MapsButton_Click" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+                    <StackPanel Grid.Column="1" x:Name="SplitViewPanePanel2">
+                        <Button Content="   Atras" Foreground="Gray" Margin="0,40,0,0" FontSize="20" Height="50" Background="Transparent" Click="BackButton_Click" HorizontalAlignment="Stretch"/>
+                        <Button Content="   Buscar" Foreground="Gray" FontSize="20" Height="50" Background="Transparent" Click="SearchButton_Click" HorizontalAlignment="Stretch"/>
+                        <Button Content="   Mapas" Foreground="Gray" FontSize="20" Height="50" Background="Transparent" Click="MapsButton_Click" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="MyFrame">
+                </Frame>
+            </SplitView.Content>
+        </SplitView>
+        <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
